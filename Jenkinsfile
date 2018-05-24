@@ -15,7 +15,12 @@ node() {
         }
     
         stage ('export env') {
+		if ("master".equalsIgnoreCase(BRANCH_NAME)) {
+
            sh "export"
+} else {
+	echo "Branch is not master. no show"
+}
         }
     }
     catch(err) {
