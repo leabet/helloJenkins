@@ -14,12 +14,14 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}
+          ls -la ${{ github.workspace }}
       - name: Compile Hello.c and Print.c
-        run: gcc Hello.c Print.c
-      - name: Link Hello
-        run: gcc -o Hello Hello.o Print.o
+        run: |
+          gcc -c Hello.c Print.c -I .
+      - name: compile and link
+        run:  |
+          gcc -o Hello Hello.o Print.o
       - name: Execute Hello
         run: ./Hello
-      - run: echo "👀 The job has now completed!
+      - run: echo "👀 The job has now completed!"
       - run: echo "🍏 This job's status is ${{ job.status }}."
