@@ -15,6 +15,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls -la ${{ github.workspace }}
+          cat /etc/*release
       - name: Compile Hello.c and Print.c
         run: |
           gcc -c Hello.c Print.c -I .
