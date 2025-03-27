@@ -15,8 +15,10 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - name: Compile Hello.c
-        run: gcc -o Hello Hello.c
+      - name: Compile Hello.c and Print.c
+        run: gcc Hello.c Print.c
+      - name: Link Hello
+        run: compile -o Hello Hello.o Print.o
       - name: Execute Hello
         run: ./Hello
       - run: echo "👀 The job has now completed!
