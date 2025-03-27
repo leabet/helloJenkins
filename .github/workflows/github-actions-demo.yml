@@ -15,4 +15,9 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: Compile Hello.c
+        run: gcc -o Hello Hello.c
+      - name: Execute Hello
+        run: ./Hello
+      - run: echo "👀 The job has now completed!
       - run: echo "🍏 This job's status is ${{ job.status }}."
